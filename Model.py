@@ -221,37 +221,58 @@ India_model.fit(India_X_train, India_Y_train, validation_data=(India_X_val, Indi
 
 
 
-
 plt.figure(2)
 
 manager = plt.get_current_fig_manager()
 manager.full_screen_toggle()
 
-plt.subplots_adjust(left=.05, right=.775, bottom =.275, top = .70, wspace = .25)
+plt.subplots_adjust(left=.045, right=.78, bottom =.275, top = .9, wspace = .2)
+
+US_train_predictions = (US_model.predict(US_X_train).flatten())*100
+
+plt.subplot(121)
+plt.plot(US_dates_train, US_train_predictions)
+plt.plot(US_dates_train, US_Y_train*100)
+plt.legend(['US Training Predictions', ' US Training Observations'])
+plt.ylabel("Stock Price in USD")
+
 
 India_train_predictions = India_model.predict(India_X_train).flatten()
 
-plt.subplot(131)
+plt.subplot(122)
 plt.plot(India_dates_train, India_train_predictions)
 plt.plot(India_dates_train, India_Y_train)
 plt.legend(['India Training Predictions', ' India Training Observations'])
 plt.ylabel("Stock Price in USD")
 #plt.show()
+plt.draw()
+
+plt.waitforbuttonpress(0)
+
+plt.close()
+
+
+plt.figure(3)
+
+manager = plt.get_current_fig_manager()
+manager.full_screen_toggle()
+
+plt.subplots_adjust(left=.045, right=.78, bottom =.275, top = .9, wspace = .2)
+
+US_val_predictions = US_model.predict(US_X_val).flatten()*100
+
+plt.subplot(121)
+plt.plot(US_dates_val, US_val_predictions)
+plt.plot(US_dates_val, US_Y_val*100)
+plt.legend(['US Value Predictions', ' US Value Observations'])
+plt.ylabel("Stock Price in USD")
 
 India_val_predictions = India_model.predict(India_X_val).flatten()
 
-plt.subplot(132)
+plt.subplot(122)
 plt.plot(India_dates_val, India_val_predictions)
 plt.plot(India_dates_val, India_Y_val)
 plt.legend(['India Value Predictions', ' India Value Observations'])
-plt.ylabel("Stock Price in USD")
-
-India_test_predictions = India_model.predict(India_X_test).flatten()
-
-plt.subplot(133)
-plt.plot(India_dates_test, India_test_predictions)
-plt.plot(India_dates_test, India_Y_test)
-plt.legend(['India Test Predictions', ' India Test Observations'])
 plt.ylabel("Stock Price in USD")
 
 plt.draw()
@@ -260,37 +281,25 @@ plt.waitforbuttonpress(0)
 
 plt.close()
 
-
-
-plt.figure(3)
+plt.figure(4)
 
 manager = plt.get_current_fig_manager()
 manager.full_screen_toggle()
 
-plt.subplots_adjust(left=.05, right=.775, bottom =.275, top = .70, wspace = .25)
+plt.subplots_adjust(left=.045, right=.78, bottom =.275, top = .9, wspace = .2)
 
-US_train_predictions = (US_model.predict(US_X_train).flatten())*100
+India_test_predictions = India_model.predict(India_X_test).flatten()
 
-plt.subplot(131)
-plt.plot(US_dates_train, US_train_predictions)
-plt.plot(US_dates_train, US_Y_train*100)
-plt.legend(['US Training Predictions', ' US Training Observations'])
+plt.subplot(121)
+plt.plot(India_dates_test, India_test_predictions)
+plt.plot(India_dates_test, India_Y_test)
+plt.legend(['India Test Predictions', ' India Test Observations'])
 plt.ylabel("Stock Price in USD")
-#plt.show()
-
-US_val_predictions = US_model.predict(US_X_val).flatten()*100
-
-plt.subplot(132)
-plt.plot(US_dates_val, US_val_predictions)
-plt.plot(US_dates_val, US_Y_val*100)
-plt.legend(['US Value Predictions', ' US Value Observations'])
-plt.ylabel("Stock Price in USD")
-#plt.show()
 
 US_test_predictions = US_model.predict(US_X_test).flatten()*100
 '''x_labels = US_dates_test[::12]
 print(x_labels)'''
-plt.subplot(133)
+plt.subplot(122)
 plt.plot(US_dates_test, US_test_predictions)
 plt.plot(US_dates_test, US_Y_test*100)
 plt.legend(['US Test Predictions', ' US Test Observations'])
