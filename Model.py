@@ -48,7 +48,7 @@ India_Stocks.index = India_Stocks.pop('Date')
 #print(US_Stocks)
 #print(India_Stocks)
 
-userStartDate='2021-03-25'
+userStartDate='2016-12-12'
 userEndDate='2023-11-03'
 epochsCount=100
 '''userStartDate= input('Enter the start date: ')
