@@ -151,6 +151,8 @@ US_dates_test, US_X_test, US_Y_test = US_dates[q_90:], US_X[q_90:], US_Y[q_90:]
 
 plt.figure(1)
 
+plt.suptitle("Technology Sector Data: split into training, validations, and test data. ",fontsize=20,horizontalalignment = 'center')
+
 manager = plt.get_current_fig_manager()
 manager.full_screen_toggle()
 
@@ -161,8 +163,10 @@ plt.plot(US_dates_train, US_Y_train*100)
 plt.plot(US_dates_val, US_Y_val*100)
 plt.plot(US_dates_test, US_Y_test*100)
 plt.ylabel("Stock Price in USD")
+plt.xlabel("Date")
+plt.title("US")
 
-plt.title('US Stock Data')
+plt.title('US Stock Data',fontsize =14)
 
 plt.legend(['Train','Validation','Test'])
 
@@ -177,8 +181,10 @@ plt.plot(India_dates_train, India_Y_train)
 plt.plot(India_dates_val, India_Y_val)
 plt.plot(India_dates_test, India_Y_test)
 plt.ylabel("Stock Price in USD")
+plt.xlabel("Date")
+plt.title("India")
 
-plt.title('India Stock Data')
+plt.title('India Stock Data', fontsize =14)
 
 plt.legend(['Train','Validation','Test'])
 
@@ -223,6 +229,8 @@ India_model.fit(India_X_train, India_Y_train, validation_data=(India_X_val, Indi
 
 plt.figure(2)
 
+plt.suptitle("Technology Sector: Training Data Results", fontsize =20,horizontalalignment='center')
+
 manager = plt.get_current_fig_manager()
 manager.full_screen_toggle()
 
@@ -233,8 +241,10 @@ US_train_predictions = (US_model.predict(US_X_train).flatten())*100
 plt.subplot(121)
 plt.plot(US_dates_train, US_train_predictions)
 plt.plot(US_dates_train, US_Y_train*100)
-plt.legend(['US Training Predictions', ' US Training Observations'])
+plt.legend(['Model Predicted Stock Prices', ' Actual Stock Prices'])
 plt.ylabel("Stock Price in USD")
+plt.xlabel("Date")
+plt.title("US",fontsize =14)
 
 
 India_train_predictions = India_model.predict(India_X_train).flatten()
@@ -242,8 +252,10 @@ India_train_predictions = India_model.predict(India_X_train).flatten()
 plt.subplot(122)
 plt.plot(India_dates_train, India_train_predictions)
 plt.plot(India_dates_train, India_Y_train)
-plt.legend(['India Training Predictions', ' India Training Observations'])
+plt.legend(['Model Predicted Stock Prices', ' Actual Stock Prices'])
 plt.ylabel("Stock Price in USD")
+plt.xlabel("Date")
+plt.title("India",fontsize = 14)
 #plt.show()
 plt.draw()
 
@@ -253,6 +265,8 @@ plt.close()
 
 
 plt.figure(3)
+
+plt.suptitle("Technology Sector: Validation Data Results",fontsize =20, horizontalalignment='center')
 
 manager = plt.get_current_fig_manager()
 manager.full_screen_toggle()
@@ -264,16 +278,20 @@ US_val_predictions = US_model.predict(US_X_val).flatten()*100
 plt.subplot(121)
 plt.plot(US_dates_val, US_val_predictions)
 plt.plot(US_dates_val, US_Y_val*100)
-plt.legend(['US Value Predictions', ' US Value Observations'])
+plt.legend(['Model Predicted Stock Prices', 'Actual Stock Prices'])
 plt.ylabel("Stock Price in USD")
+plt.xlabel("Date")
+plt.title("US",fontsize =14)
 
 India_val_predictions = India_model.predict(India_X_val).flatten()
 
 plt.subplot(122)
 plt.plot(India_dates_val, India_val_predictions)
 plt.plot(India_dates_val, India_Y_val)
-plt.legend(['India Value Predictions', ' India Value Observations'])
+plt.legend(['Model Predicted Stock Prices', 'Actual Stock Prices'])
 plt.ylabel("Stock Price in USD")
+plt.xlabel("Date")
+plt.title("India",fontsize = 14)
 
 plt.draw()
 
@@ -283,6 +301,8 @@ plt.close()
 
 plt.figure(4)
 
+plt.suptitle("Technology Sector: Model Testing Data Results",fontsize=20,horizontalalignment='center')
+
 manager = plt.get_current_fig_manager()
 manager.full_screen_toggle()
 
@@ -291,9 +311,11 @@ plt.subplots_adjust(left=.045, right=.78, bottom =.275, top = .9, wspace = .2)
 India_test_predictions = India_model.predict(India_X_test).flatten()
 
 plt.subplot(121)
+plt.xlabel("Date")
+plt.title("India",fontsize = 14)
 plt.plot(India_dates_test, India_test_predictions)
 plt.plot(India_dates_test, India_Y_test)
-plt.legend(['India Test Predictions', ' India Test Observations'])
+plt.legend(['Model Predicted Stock Prices', 'Actual Stock Prices'])
 plt.ylabel("Stock Price in USD")
 
 US_test_predictions = US_model.predict(US_X_test).flatten()*100
@@ -302,9 +324,10 @@ print(x_labels)'''
 plt.subplot(122)
 plt.plot(US_dates_test, US_test_predictions)
 plt.plot(US_dates_test, US_Y_test*100)
-plt.legend(['US Test Predictions', ' US Test Observations'])
+plt.legend(['Model Predicted Stock Prices', 'Actual Stock Prices'])
 plt.ylabel("Stock Price in USD")
-
+plt.xlabel("Date")
+plt.title("US", fontsize =14)
 plt.draw()
 
 plt.waitforbuttonpress(0)
