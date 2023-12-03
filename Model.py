@@ -310,7 +310,7 @@ plt.subplots_adjust(left=.045, right=.78, bottom =.275, top = .9, wspace = .2)
 
 India_test_predictions = India_model.predict(India_X_test).flatten()
 
-plt.subplot(121)
+plt.subplot(122)
 plt.xlabel("Date")
 plt.title("India",fontsize = 14)
 plt.plot(India_dates_test, India_test_predictions)
@@ -321,7 +321,7 @@ plt.ylabel("Stock Price in USD")
 US_test_predictions = US_model.predict(US_X_test).flatten()*100
 '''x_labels = US_dates_test[::12]
 print(x_labels)'''
-plt.subplot(122)
+plt.subplot(121)
 plt.plot(US_dates_test, US_test_predictions)
 plt.plot(US_dates_test, US_Y_test*100)
 plt.legend(['Model Predicted Stock Prices', 'Actual Stock Prices'])
@@ -333,3 +333,6 @@ plt.draw()
 plt.waitforbuttonpress(0)
 
 plt.close()
+
+print(US_model.summary())
+print(India_model.summary())
