@@ -206,7 +206,7 @@ US_model = Sequential([layers.Input((3, 1)),
 
 US_model.compile(loss='mse', 
               optimizer=Adam(learning_rate=0.001),
-              metrics=['mean_absolute_error'])
+              metrics=['mean_absolute_percentage_error'])
 
 US_model.fit(US_X_train, US_Y_train, validation_data=(US_X_val, US_Y_val), epochs=epochsCount)
 
@@ -221,7 +221,7 @@ India_model = Sequential([layers.Input((3, 1)),
 
 India_model.compile(loss='mse', 
               optimizer=Adam(learning_rate=0.001),
-              metrics=['mean_absolute_error'])
+              metrics=['mean_absolute_percentage_error'])
 
 India_model.fit(India_X_train, India_Y_train, validation_data=(India_X_val, India_Y_val), epochs=epochsCount)
 
