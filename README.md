@@ -8,4 +8,4 @@
   Though using the mean absolute error metric (3.4753%), it can be concluded that the model is extremely effective and is a good indicator of the technology sector in both India and the United States.
 
 
-<img src="https://github.com/NicholasMatias/RNN_LSTM_Route_For_Stock_Prediction/blob/main/Graphs/Validation%20Data%20Graphs.png" style=" width: 100% "  >
+<img src="https://github.com/NicholasMatias/RNN_LSTM_Route_For_Stock_Prediction/blob/main/Graphs/Validation%20Data%20Graphs.png" style=" width: 90% position: center"  >
